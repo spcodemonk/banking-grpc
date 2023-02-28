@@ -2,16 +2,17 @@ plugins {
 	id 'java'
 	id 'java-library'
 	id 'com.google.protobuf' version '0.8.19'
-	id "com.google.osdetector" version "1.7.3"
+	id "com.google.osdetector" version '1.7.3'
+	id 'maven-publish'
 }
 
 group = 'com.sp.grpc'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2'
 sourceCompatibility = '19'
 
 repositories {
 	mavenCentral()
-
+	mavenLocal()
 }
 
 dependencies {
@@ -35,5 +36,16 @@ protobuf {
 		all()*.plugins {
 			grpc {}
 		}
+	}
+}
+
+publishing {
+	publications {
+		maven(MavenPublication) {
+			from components.java
+		}
+	}
+	repositories {
+		mavenLocal()
 	}
 }
