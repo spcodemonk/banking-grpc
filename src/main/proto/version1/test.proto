@@ -4,7 +4,7 @@ import "google/protobuf/timestamp.proto";
 
 package cityscore;
 
-option java_package = "com.nils.gprc.cityscore";
+option java_package = "com.sp.grpc";
 option java_multiple_files = true;
 
 message CityScoreRequest {
