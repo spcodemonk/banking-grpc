@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "com.sp.grpc";
+option java_multiple_files = true;
+package hra;
+
+message HraRequest{
+  optional double basicSalary = 1;
+  optional double rentPaid = 2;
+  optional double hraReceived = 3;
+
+}
+
+message HraResponse{
+  optional double claimAmount = 1;
+}
+service HraService{
+  rpc calculateHRA(HraRequest) returns (HraResponse){};
+}
